@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name — Data Science</title>
+  <meta name="description" content="MSc Data Science student. Projects in machine learning, NLP, and data engineering." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-page:    #fafaf8;
+      --bg-card:    #ffffff;
+      --border:     #e0e0d8;
+      --border-hover: #b0b0a8;
+      --text-primary:   #111111;
+      --text-secondary: #666666;
+      --text-muted:     #aaaaaa;
+
+      /* tag palettes — background / text */
+      --tag-py-bg:    #eaf3de; --tag-py-tx:    #3b6d11;
+      --tag-ml-bg:    #eeedfe; --tag-ml-tx:    #3c3489;
+      --tag-sql-bg:   #e6f1fb; --tag-sql-tx:   #185fa5;
+      --tag-r-bg:     #faeeda; --tag-r-tx:     #633806;
+      --tag-viz-bg:   #e1f5ee; --tag-viz-tx:   #085041;
+      --tag-nlp-bg:   #fbeaf0; --tag-nlp-tx:   #72243e;
+      --tag-spark-bg: #fcebeb; --tag-spark-tx: #791f1f;
+      --tag-infra-bg: #e6f1fb; --tag-infra-tx: #0c447c;
+      --tag-stats-bg: #faeeda; --tag-stats-tx: #854f0b;
+      --tag-other-bg: #f1efe8; --tag-other-tx: #444441;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--bg-page);
+      color: var(--text-primary);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── layout ── */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 4.5rem 2rem 7rem;
+    }
+
+    /* ── header ── */
+    .name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0em;
+      margin-bottom: 0.2rem;
+      color: var(--text-primary);
+    }
+
+    .tagline {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+      margin-bottom: 0.9rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 1.4rem;
+      margin-bottom: 3.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 0.5px solid #ccc;
+      padding-bottom: 1px;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+      border-color: var(--text-primary);
+    }
+
+    /* ── divider + section label ── */
+    .divider {
+      border: none;
+      border-top: 0.5px solid #ddd;
+      margin-bottom: 2.25rem;
+    }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.15rem;
+    }
+
+    /* ── card grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+    }
+
+    @media (max-width: 560px) {
+      .container { padding: 3rem 1.25rem 5rem; }
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── project card ── */
+    .card {
+      display: block;
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-left: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem 1.35rem 1.1rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s ease, border-left-color 0.2s ease, border-left-width 0.15s ease, box-shadow 0.15s ease;
+      /* staggered fade-in */
+      opacity: 0;
+      transform: translateY(6px);
+      animation: fadeUp 0.4s ease forwards;
+    }
+
+    .card:hover {
+      border-color: var(--border-hover);
+      border-left: 3px solid #888780;
+      box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    /* generate animation delays for up to 12 cards */
+    .card:nth-child(1)  { animation-delay: 0.05s; }
+    .card:nth-child(2)  { animation-delay: 0.10s; }
+    .card:nth-child(3)  { animation-delay: 0.15s; }
+    .card:nth-child(4)  { animation-delay: 0.20s; }
+    .card:nth-child(5)  { animation-delay: 0.25s; }
+    .card:nth-child(6)  { animation-delay: 0.30s; }
+    .card:nth-child(7)  { animation-delay: 0.35s; }
+    .card:nth-child(8)  { animation-delay: 0.40s; }
+    .card:nth-child(9)  { animation-delay: 0.45s; }
+    .card:nth-child(10) { animation-delay: 0.50s; }
+    .card:nth-child(11) { animation-delay: 0.55s; }
+    .card:nth-child(12) { animation-delay: 0.60s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card { animation: none; opacity: 1; transform: none; }
+    }
+
+    .card-title {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+      line-height: 1.35;
+    }
+
+    .card-desc {
+      font-size: 0.775rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.85rem;
+      font-weight: 300;
+      line-height: 1.55;
+    }
+
+    /* ── tags — gray at rest, colored on card hover ── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .tag {
+      font-size: 0.67rem;
+      font-weight: 400;
+      padding: 3px 9px;
+      border-radius: 20px;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      background: #f1efe8;
+      color: #888780;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    /* reveal color when the parent card is hovered */
+    .card:hover .tag-py    { background: var(--tag-py-bg);    color: var(--tag-py-tx); }
+    .card:hover .tag-ml    { background: var(--tag-ml-bg);    color: var(--tag-ml-tx); }
+    .card:hover .tag-sql   { background: var(--tag-sql-bg);   color: var(--tag-sql-tx); }
+    .card:hover .tag-r     { background: var(--tag-r-bg);     color: var(--tag-r-tx); }
+    .card:hover .tag-viz   { background: var(--tag-viz-bg);   color: var(--tag-viz-tx); }
+    .card:hover .tag-nlp   { background: var(--tag-nlp-bg);   color: var(--tag-nlp-tx); }
+    .card:hover .tag-spark { background: var(--tag-spark-bg); color: var(--tag-spark-tx); }
+    .card:hover .tag-infra { background: var(--tag-infra-bg); color: var(--tag-infra-tx); }
+    .card:hover .tag-stats { background: var(--tag-stats-bg); color: var(--tag-stats-tx); }
+    .card:hover .tag-other { background: var(--tag-other-bg); color: var(--tag-other-tx); }
+
+    /* ── footer ── */
+    footer {
+      margin-top: 4rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ═══ HEADER — edit these four lines ═══ -->
+    <p class="name">Your Name</p>
+    <p class="tagline">MSc Data Science · Your University · Expected 20XX</p>
+
+    <ul class="nav-links">
+      <li><a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="/resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      <li><a href="mailto:you@email.com">Email</a></li>
+    </ul>
+
+    <hr class="divider" />
+    <p class="section-label">Projects</p>
+
+    <!-- ═══ PROJECT GRID ═══
+         Each .card is one project.
+         href="#" → replace with the GitHub repo URL.
+         Tags: use the class that matches the skill category.
+         Available tag classes:
+           tag-py    → Python
+           tag-ml    → ML / deep learning frameworks
+           tag-sql   → SQL / databases
+           tag-r     → R / statistics packages
+           tag-viz   → visualisation libraries
+           tag-nlp   → NLP-specific tools/concepts
+           tag-spark → big data (Spark, Kafka, Hadoop…)
+           tag-infra → infra / DevOps (Docker, cloud, APIs)
+           tag-stats → stats / probability / Bayesian
+           tag-other → anything else (use sparingly)
+    ═══ -->
+    <div class="grid">
+
+      <!-- PROJECT 1 -->
+      <a class="card" href="#" target="_blank" rel="noopener">
+        <p class="card-title">Project Title One</p>
+        <p class="card-desc">One or two sentences describing what you built, the scale of the data, and the core technique.</p>
+        <div class="tags">
+          <span class="tag tag-py">Python</span>
+          <span class="tag tag-ml">scikit-learn</span>
+          <span class="tag tag-sql">SQL</span>
+        </div>
+      </a>
+
+      <!-- PROJECT 2 -->
+      <a class="card" href="#" target="_blank" rel="noopener">
+        <p class="card-title">Project Title Two</p>
+        <p class="card-desc">One or two sentences describing what you built, the scale of the data, and the core technique.</p>
+        <div class="tags">
+          <span class="tag tag-py">Python</span>
+          <span class="tag tag-nlp">NLP</span>
+          <span class="tag tag-ml">Transformers</span>
+        </div>
+      </a>
+
+      <!-- PROJECT 3 -->
+      <a class="card" href="#" target="_blank" rel="noopener">
+        <p class="card-title">Project Title Three</p>
+        <p class="card-desc">One or two sentences describing what you built, the scale of the data, and the core technique.</p>
+        <div class="tags">
+          <span class="tag tag-py">Python</span>
+          <span class="tag tag-spark">Spark</span>
+          <span class="tag tag-viz">Plotly</span>
+        </div>
+      </a>
+
+      <!-- PROJECT 4 -->
+      <a class="card" href="#" target="_blank" rel="noopener">
+        <p class="card-title">Project Title Four</p>
+        <p class="card-desc">One or two sentences describing what you built, the scale of the data, and the core technique.</p>
+        <div class="tags">
+          <span class="tag tag-r">R</span>
+          <span class="tag tag-stats">Bayesian</span>
+          <span class="tag tag-viz">ggplot2</span>
+        </div>
+      </a>
+
+      <!-- PROJECT 5 -->
+      <a class="card" href="#" target="_blank" rel="noopener">
+        <p class="card-title">Project Title Five</p>
+        <p class="card-desc">One or two sentences describing what you built, the scale of the data, and the core technique.</p>
+        <div class="tags">
+          <span class="tag tag-py">Python</span>
+          <span class="tag tag-ml">PyTorch</span>
+          <span class="tag tag-infra">Docker</span>
+        </div>
+      </a>
+
+      <!-- PROJECT 6 -->
+      <a class="card" href="#" target="_blank" rel="noopener">
+        <p class="card-title">Project Title Six</p>
+        <p class="card-desc">One or two sentences describing what you built, the scale of the data, and the core technique.</p>
+        <div class="tags">
+          <span class="tag tag-sql">Postgres</span>
+          <span class="tag tag-py">Python</span>
+          <span class="tag tag-infra">API</span>
+        </div>
+      </a>
+
+      <!-- add more cards here, copying the block above -->
+
+    </div><!-- /grid -->
+
+    <footer>
+      <!-- optional: remove this line entirely if you prefer nothing here -->
+      &copy; 2025 Your Name
+    </footer>
+
+  </div><!-- /container -->
+</body>
+</html>
