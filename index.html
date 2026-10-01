@@ -263,15 +263,34 @@
     <div class="grid">
 
       <!-- PROJECT 1 -->
-      <a class="card" href="https://github.com/mraynolds/headweightprojection/blob/main/climate_data/projection_35_to_harvest.ipynb" target="_blank" rel="noopener">
-        <p class="card-title">Predicting Lettuce Yields: A Greenhouse Machine Learning Model -- In progress</p>
-        <p class="card-desc">Compared regression, KNN, and SVM models to predict to predict final head weights at harvest from a small feature set inclduing recent harvest weights, growth rates, and prior-year same-week data. Linear regression explained the most variance (R<sup>2</sup> = 0.68) in final yield across a commercial greenhouse operation.</p>
+      <article class="card">
+        <p class="card-title">Basil Harvest Forecast</p>
+      
+        <p class="card-desc">
+          Built and deployed an R Shiny app to forecast a greenhouse basil
+          head-weight index. Compared forecasting models using time-ordered
+          validation and displayed prediction intervals across 13 target weeks.
+          Includes a reproducible synthetic-data demo.
+        </p>
+      
         <div class="tags">
-          <span class="tag tag-py">Python</span>
-          <span class="tag tag-ml">ML</span>
-          <span class="tag tag-viz">ggplot2</span>
+          <span class="tag">R</span>
+          <span class="tag">Shiny</span>
+          <span class="tag">Forecasting</span>
         </div>
-      </a>
+      
+        <div class="card-links">
+          <a href="https://jc9rx0-maxfield-raynolds.shinyapps.io/basil_forecast_demo/"
+             target="_blank" rel="noopener">
+            Live demo ↗
+          </a>
+      
+          <a href="https://github.com/mraynolds/basil_harvest_forecast_app"
+             target="_blank" rel="noopener">
+            Source code ↗
+          </a>
+        </div>
+      </article>
 
       <!-- PROJECT 2 -->
       <a class="card" href="https://rpubs.com/mraynolds/1418255" target="_blank" rel="noopener">
@@ -327,6 +346,16 @@
         </div>
       </a>
 
+      <!-- PROJECT 7 -->
+      <a class="card" href="https://github.com/mraynolds/headweightprojection/blob/main/climate_data/projection_35_to_harvest.ipynb" target="_blank" rel="noopener">
+        <p class="card-title">Predicting Lettuce Yields: A Greenhouse Machine Learning Project -- In progress</p>
+        <p class="card-desc">This is an exploration and work in progress. It compares regression, KNN, and SVM models to predict to predict final head weights at harvest from a small feature set inclduing recent harvest weights, growth rates, and prior-year same-week data. Linear regression explained the most variance (R<sup>2</sup> = 0.68) in final yield across a commercial greenhouse operation.</p>
+        <div class="tags">
+          <span class="tag tag-py">Python</span>
+          <span class="tag tag-ml">ML</span>
+          <span class="tag tag-viz">ggplot2</span>
+        </div>
+      </a>
       <!-- add more cards here, copying the block above -->
 
     </div><!-- /grid -->
